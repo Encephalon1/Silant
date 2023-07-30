@@ -1,0 +1,9 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+
+{% for car in user_cars %}
+    <a href="{% url 'main' car_detail.factory_car_num %}">{{ car.factory_car_num }}</a>
+{% endfor %}
+
+{% endblock content %}

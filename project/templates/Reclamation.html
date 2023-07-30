@@ -1,0 +1,35 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+
+<p>Информация о заявленных рекламациях Вашей техники и их устранении</p>
+
+<table>
+    <tr>
+        <td>Зав. № машины</td>
+        <td>Модель техники</td>
+        <td>Модель двигателя</td>
+        <td>Зав. № двигателя</td>
+        <td>Модель трансмиссии</td>
+        <td>Зав. № трансмиссии</td>
+        <td>Модель ведущего моста</td>
+        <td>Зав. № ведущего моста</td>
+        <td>Модель управляемого моста</td>
+        <td>Зав. № управляемого моста</td>
+    </tr>
+
+    <tr>
+        <td>{{ car.factory_car_num }}</td>
+        <td>{{ car.technique_model }}</td>
+        <td>{{ car.engine_model }}</td>
+        <td>{{ car.factory_engine_num }}</td>
+        <td>{{ car.transmission_model }}</td>
+        <td>{{ car.factory_transmission_num }}</td>
+        <td>{{ car.drive_axle_model }}</td>
+        <td>{{ car.factory_drive_axle_num }}</td>
+        <td>{{ car.steerable_bridge_model }}</td>
+        <td>{{ car.factory_steerable_bridge_num }}</td>
+    </tr>
+
+</table>
+{% endblock content %}

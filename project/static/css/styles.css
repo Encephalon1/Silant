@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'PT Astra Sans';
+    src: url('../fonts/PT-Astra-Sans_Regular.ttf')
+}
+
+body {
+    background-color: #EBE6D6;
+    font-family: 'PT Astra Sans';
+    color: #163E6C
+}
+
+.search {
+    background: #D20A11;
+    color: #EBE6D6;
+    border: none
+}
