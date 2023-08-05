@@ -6,6 +6,7 @@
 <br>
 <p>Заводской номер:</p>
 <form action="{% url 'search_results' %}" method="get">
+    {% csrf_token %}
     <input name="search_car" type="text">
     <button type="submit" class="search">Поиск</button>
 </form>

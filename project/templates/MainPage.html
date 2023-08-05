@@ -2,8 +2,9 @@
 
 {% block content %}
 
+<p>Приобретенные погрузчики:</p>
 {% for car in user_cars %}
-    <a href="{% url 'main' car_detail.factory_car_num %}">{{ car.factory_car_num }}</a>
+    <a href="{% url 'single_car' pk=car.factory_car_num %}"><u>{{ car.factory_car_num }}</u></a>
 {% endfor %}
 
 {% endblock content %}

@@ -6,30 +6,26 @@
 
 <table>
     <tr>
-        <td>Зав. № машины</td>
-        <td>Модель техники</td>
-        <td>Модель двигателя</td>
-        <td>Зав. № двигателя</td>
-        <td>Модель трансмиссии</td>
-        <td>Зав. № трансмиссии</td>
-        <td>Модель ведущего моста</td>
-        <td>Зав. № ведущего моста</td>
-        <td>Модель управляемого моста</td>
-        <td>Зав. № управляемого моста</td>
+        <td>Вид ТО</td>
+        <td>Дата проведения ТО</td>
+        <td>Наработка, м/час</td>
+        <td>№ заказ-наряда</td>
+        <td>Дата заказ-наряда</td>
+        <td>Машина</td>
+        <td>Сервисная компания</td>
     </tr>
 
+    {% for maintenance in maintenances %}
     <tr>
-        <td>{{ car.factory_car_num }}</td>
-        <td>{{ car.technique_model }}</td>
-        <td>{{ car.engine_model }}</td>
-        <td>{{ car.factory_engine_num }}</td>
-        <td>{{ car.transmission_model }}</td>
-        <td>{{ car.factory_transmission_num }}</td>
-        <td>{{ car.drive_axle_model }}</td>
-        <td>{{ car.factory_drive_axle_num }}</td>
-        <td>{{ car.steerable_bridge_model }}</td>
-        <td>{{ car.factory_steerable_bridge_num }}</td>
+        <td>{{ maintenance.kind_of_maintenance }}</td>
+        <td>{{ maintenance.date_of_maintenance }}</td>
+        <td>{{ maintenance.running_time }}</td>
+        <td>{{ maintenance.work_order }}</td>
+        <td>{{ maintenance.date_work_order }}</td>
+        <td>{{ maintenance.car }}</td>
+        <td>{{ maintenance.service_company }}</td>
     </tr>
+    {% endfor %}
 
 </table>
 {% endblock content %}
