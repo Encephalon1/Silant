@@ -1,0 +1,48 @@
+{% extends 'flatpages/default.html' %}
+
+{% block content %}
+
+<p>Информация о комплектации и технических характеристиках Вашей техники</p>
+
+<table>
+    <tr>
+        <td>Зав. № машины</td>
+        <td>Модель техники</td>
+        <td>Модель двигателя</td>
+        <td>Зав. № двигателя</td>
+        <td>Модель трансмиссии</td>
+        <td>Зав. № трансмиссии</td>
+        <td>Модель ведущего моста</td>
+        <td>Зав. № ведущего моста</td>
+        <td>Модель управляемого моста</td>
+        <td>Зав. № управляемого моста</td>
+        <td>Договор поставки №, дата</td>
+        <td>Дата отгрузки с завода</td>
+        <td>Грузополучатель (конечный потребитель)</td>
+        <td>Адрес поставки (эксплуатации)</td>
+        <td>Комплектация (доп. опции)</td>
+        <td>Клиент</td>
+        <td>Сервисная компания</td>
+    </tr>
+
+    <tr>
+        <td>{{ car_detail.factory_car_num }}</td>
+        <td>{{ car_detail.technique_model }}</td>
+        <td>{{ car_detail.engine_model }}</td>
+        <td>{{ car_detail.factory_engine_num }}</td>
+        <td>{{ car_detail.transmission_model }}</td>
+        <td>{{ car_detail.factory_transmission_num }}</td>
+        <td>{{ car_detail.drive_axle_model }}</td>
+        <td>{{ car_detail.factory_drive_axle_num }}</td>
+        <td>{{ car_detail.steerable_bridge_model }}</td>
+        <td>{{ car_detail.factory_steerable_bridge_num }}</td>
+        <td>{{ car_detail.supply_contract }}</td>
+        <td>{{ car_detail.date_of_shipment }}</td>
+        <td>{{ car_detail.consignee }}</td>
+        <td>{{ car_detail.delivery_address }}</td>
+        <td>{{ car_detail.equipment }}</td>
+        <td>{{ car_detail.client }}</td>
+        <td>{{ car_detail.service_company }}</td>
+    </tr>
+</table>
+{% endblock content %}
