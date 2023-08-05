@@ -33,13 +33,15 @@ class CarDetail(DetailView):
     context_object_name = 'car_detail'
 
 
-class MaintenanceDetail(DetailView):
-    model = Maintenance
-    template_name = 'Maintenance.html'
-    context_object_name = 'maintenance_detail'
+def maintenance(request, pk):
+    context = {
+        'maintenances': Maintenance.objects.filter(car=pk)
+    }
+    return render(request, 'Maintenance.html', context)
 
 
-class ReclamationDetail(DetailView):
-    model = Reclamation
-    template_name = 'Reclamation.html'
-    context_object_name = 'reclamation_detail'
+def reclamation(request, pk):
+    context = {
+        'reclamations': Reclamation.objects.filter(car=pk)
+    }
+    return render(request, 'Reclamation.html', context)
