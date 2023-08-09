@@ -1,5 +1,7 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import ListView, DetailView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 
@@ -20,6 +22,7 @@ class SearchCarResultView(ListView):
         return object_list
 
 
+@login_required(login_url='/accounts/login/')
 def main(request):
     context = {
         'user_cars': Car.objects.filter(client=request.user)
@@ -27,12 +30,14 @@ def main(request):
     return render(request, 'MainPage.html', context)
 
 
-class CarDetail(DetailView):
+class CarDetail(DetailView, LoginRequiredMixin):
     model = Car
     template_name = 'Car.html'
     context_object_name = 'car_detail'
+    login_url = '/accounts/login/'
 
 
+@login_required(login_url='/accounts/login/')
 def maintenance(request, pk):
     context = {
         'maintenances': Maintenance.objects.filter(car=pk)
@@ -40,6 +45,7 @@ def maintenance(request, pk):
     return render(request, 'Maintenance.html', context)
 
 
+@login_required(login_url='/accounts/login/')
 def reclamation(request, pk):
     context = {
         'reclamations': Reclamation.objects.filter(car=pk)
