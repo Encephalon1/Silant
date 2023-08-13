@@ -9,6 +9,9 @@
             <header>
                 <p>+7-8352-20-12-09, telegram</p>
                 <p>Электронная сервисная книжка "Мой Силант"</p>
+                {% if user.is_superuser %}
+                <a href="{% url 'admin:index' %}">Панель администратора</a>
+                {% endif %}
             </header>
             <div class="container">
                 <div class="row">
