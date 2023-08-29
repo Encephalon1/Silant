@@ -1,3 +1,4 @@
+from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import User
 from django.db import models
 from django.db.models import F
@@ -70,6 +71,7 @@ class RecoveryMethod(DirectoryMaintenance):
 class ServiceCompany(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField()
+    company = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
