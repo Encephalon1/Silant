@@ -140,3 +140,6 @@ STATICFILES_DIRS = [
 ]
 
 LOGIN_REDIRECT_URL = '/'
+
+ACCOUNT_ADAPTER = 'silant.adapter.CustomAccountAdapter'
+ACCOUNT_ALLOW_SIGNUPS = False
