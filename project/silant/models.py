@@ -121,6 +121,9 @@ class Maintenance(models.Model):
     def __str__(self):
         return self.kind_of_maintenance
 
+    def get_absolute_url(self):
+        return reverse('maintenance', args=[str(self.pk)])
+
 
 class Reclamation(models.Model):
     date_of_rejection = models.DateField(default=date.today)
@@ -140,3 +143,6 @@ class Reclamation(models.Model):
 
     def __str__(self):
         return self.failure_node.name
+
+    def get_absolute_url(self):
+        return reverse('reclamation', args=[str(self.pk)])

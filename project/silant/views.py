@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import *
+from .forms import *
 
 
 class UnauthorizedView(ListView):
@@ -51,3 +52,27 @@ def reclamation(request, pk):
         'reclamations': Reclamation.objects.filter(car=pk)
     }
     return render(request, 'Reclamation.html', context)
+
+
+class MaintenanceCreate(CreateView):
+    form_class = MaintenanceForm
+    model = Maintenance
+    template_name = 'maintenance_edit.html'
+
+
+class ReclamationCreate(CreateView):
+    form_class = ReclamationForm
+    model = Reclamation
+    template_name = 'reclamation_edit.html'
+
+
+class MaintenanceUpdate(UpdateView):
+    form_class = MaintenanceForm
+    model = Maintenance
+    template_name = 'maintenance_edit.html'
+
+
+class ReclamationUpdate(UpdateView):
+    form_class = ReclamationForm
+    model = Reclamation
+    template_name = 'reclamation_edit.html'
