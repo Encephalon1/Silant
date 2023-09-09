@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import *
@@ -54,25 +54,29 @@ def reclamation(request, pk):
     return render(request, 'Reclamation.html', context)
 
 
-class MaintenanceCreate(CreateView):
+class MaintenanceCreate(PermissionRequiredMixin, CreateView):
     form_class = MaintenanceForm
     model = Maintenance
     template_name = 'maintenance_edit.html'
+    permission_required = 'silant.add_maintenance'
 
 
-class ReclamationCreate(CreateView):
+class ReclamationCreate(PermissionRequiredMixin, CreateView):
     form_class = ReclamationForm
     model = Reclamation
     template_name = 'reclamation_edit.html'
+    permission_required = 'silant.add_reclamation'
 
 
-class MaintenanceUpdate(UpdateView):
+class MaintenanceUpdate(PermissionRequiredMixin, UpdateView):
     form_class = MaintenanceForm
     model = Maintenance
     template_name = 'maintenance_edit.html'
+    permission_required = 'silant.change_maintenance'
 
 
-class ReclamationUpdate(UpdateView):
+class ReclamationUpdate(PermissionRequiredMixin, UpdateView):
     form_class = ReclamationForm
     model = Reclamation
     template_name = 'reclamation_edit.html'
+    permission_required = 'silant.change_reclamation'
